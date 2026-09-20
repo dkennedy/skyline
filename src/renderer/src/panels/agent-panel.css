@@ -1,0 +1,140 @@
+.agent-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  min-height: 0;
+}
+
+.agent-panel__transcript {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 2px;
+}
+
+.agent-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.agent-message--user {
+  justify-content: flex-end;
+}
+
+.agent-message--agent {
+  justify-content: flex-start;
+}
+
+.agent-message__bubble {
+  max-width: 216px;
+  padding: 8px;
+  border-radius: var(--radius-base);
+  font-size: var(--font-body);
+  line-height: 1.35;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  user-select: text;
+}
+
+.agent-message--user .agent-message__bubble {
+  background: var(--fill-secondary);
+}
+
+.agent-message--agent .agent-message__bubble {
+  background: var(--fill-primary);
+}
+
+.agent-message__avatar {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.agent-message__avatar--user {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  object-fit: cover;
+  background: var(--fill-primary);
+}
+
+.agent-composer {
+  position: relative;
+  flex-shrink: 0;
+  min-height: 144px;
+  border-radius: var(--radius-base);
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.agent-composer__input {
+  width: 100%;
+  height: 100%;
+  min-height: 144px;
+  border: 0;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 8px 8px 40px;
+  font-size: var(--font-body);
+  line-height: 1.35;
+  user-select: text;
+}
+
+.agent-composer__input::placeholder {
+  color: var(--text-secondary);
+}
+
+.agent-composer__actions {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.agent-composer__btn {
+  pointer-events: auto;
+  width: auto;
+  height: var(--control-height);
+  min-width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: var(--radius-small);
+  background: var(--fill-primary);
+  color: var(--text-primary);
+}
+
+.agent-composer__btn:hover {
+  background: var(--fill-secondary);
+}
+
+.agent-composer__btn--send {
+  background: var(--accent);
+  color: var(--button-text);
+}
+
+.agent-composer__btn--send:hover:not(:disabled) {
+  filter: brightness(1.08);
+  background: var(--accent);
+}
+
+.agent-composer__btn--send:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

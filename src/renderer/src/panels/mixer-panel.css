@@ -1,0 +1,287 @@
+.mixer-panel {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.mixer-panel__tree {
+  width: 220px;
+  flex-shrink: 0;
+  overflow: auto;
+  border-right: 1px solid var(--bg-primary);
+  padding: 0;
+}
+
+.mixer-tree-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: var(--radius-small);
+  background: transparent;
+  color: var(--text-primary);
+  text-align: left;
+  font-size: var(--font-body);
+}
+
+.mixer-tree-row--child {
+  padding-left: 24px;
+}
+
+.mixer-tree-row:hover {
+  background: color-mix(in srgb, var(--fill-primary) 55%, transparent);
+}
+
+.mixer-tree-row--selected,
+.mixer-tree-row--selected:hover {
+  background: var(--fill-primary);
+}
+
+.mixer-tree-row__chevron,
+.mixer-tree-row__spacer {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.mixer-panel__strips {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.mixer-channel {
+  width: 132px;
+  flex-shrink: 0;
+  height: 100%;
+  min-height: 256px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--bg-primary);
+  background: var(--bg-secondary);
+}
+
+.mixer-channel--master {
+  width: 162px;
+}
+
+.mixer-channel--selected {
+  background: color-mix(in srgb, var(--fill-primary) 28%, var(--bg-secondary));
+}
+
+.mixer-channel__title,
+.mixer-channel__send {
+  flex-shrink: 0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--bg-primary);
+  font-size: var(--font-body);
+  color: var(--text-primary);
+}
+
+.mixer-channel__title {
+  font-weight: 700;
+}
+
+.mixer-channel__send {
+  border-bottom: 0;
+  font-size: var(--font-small);
+  font-weight: 400;
+}
+
+.mixer-channel__body {
+  flex: 1;
+  min-height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--bg-primary);
+}
+
+/* Fixed design-height stage so scale, faders, meters, and labels stay together
+   and remain vertically centered when the panel is stretched. */
+.mixer-channel__stage {
+  position: relative;
+  width: 100%;
+  height: 192px;
+  flex-shrink: 0;
+}
+
+.mixer-channel__gain-label {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: var(--font-small);
+  color: var(--text-primary);
+  pointer-events: none;
+}
+
+.mixer-channel__peak {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: var(--font-small);
+  color: var(--text-primary);
+  pointer-events: none;
+}
+
+.mixer-channel__peak--warm {
+  color: #ffb866;
+}
+
+.mixer-channel__peak--hot {
+  color: #ff6e66;
+}
+
+.mixer-channel__scale {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  width: 12px;
+  height: 128px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 6px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.mixer-fader {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 128px;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+.mixer-fader--control {
+  /* Sit flush against the left edge of the VU meter. */
+  left: calc(50% - 11.5px - 18px);
+  cursor: ns-resize;
+}
+
+.mixer-channel--master .mixer-fader--control {
+  /* Stereo meters are two 23px bars + 4px gap = 50px wide. */
+  left: calc(50% - 25px - 18px);
+}
+
+.mixer-fader--rail {
+  right: calc(50% - 11.5px - 18px);
+  pointer-events: none;
+}
+
+.mixer-channel--master .mixer-fader--rail {
+  right: calc(50% - 25px - 18px);
+}
+
+.mixer-ticks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 16px;
+  height: 128px;
+  color: inherit;
+}
+
+.mixer-ticks--end {
+  align-items: flex-end;
+}
+
+.mixer-ticks--start {
+  align-items: flex-start;
+}
+
+.mixer-ticks__mark {
+  display: block;
+  height: 1px;
+  background: currentColor;
+  border-radius: 0.5px;
+  opacity: 0.55;
+}
+
+.mixer-ticks__mark--major {
+  width: 12px;
+  opacity: 0.7;
+}
+
+.mixer-ticks__mark--minor {
+  width: 7px;
+  opacity: 0.4;
+}
+
+.mixer-fader__thumb {
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 1px;
+  background: var(--text-primary);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.mixer-channel__meters {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.mixer-channel__meters--stereo {
+  gap: 4px;
+}
+
+.mixer-meter {
+  position: relative;
+  width: 23px;
+  border-radius: var(--radius-small);
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.mixer-meter__fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.mixer-meter__fill--green {
+  background: #66ff7a;
+}
+
+.mixer-meter__fill--orange {
+  background: #ffb866;
+}
+
+.mixer-meter__fill--red {
+  background: #ff6e66;
+}
+

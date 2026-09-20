@@ -1,0 +1,93 @@
+.hierarchy-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 16px 12px;
+  background: var(--bg-secondary);
+  min-height: 0;
+}
+
+.hierarchy-panel__search {
+  flex-shrink: 0;
+  height: 24px;
+  border-radius: var(--radius-small);
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.hierarchy-panel__search-input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0 8px;
+  font-size: var(--font-body);
+}
+
+.hierarchy-panel__search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.hierarchy-panel__search-input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.hierarchy-panel__tree {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.hierarchy-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: var(--radius-small);
+  background: transparent;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+}
+
+.hierarchy-row:hover {
+  background: color-mix(in srgb, var(--fill-primary) 55%, transparent);
+}
+
+.hierarchy-row--selected,
+.hierarchy-row--selected:hover {
+  background: var(--fill-primary);
+}
+
+.hierarchy-row__chevron,
+.hierarchy-row__spacer {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hierarchy-row__chevron {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.hierarchy-row__label {
+  font-size: var(--font-body);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,80 @@
+.scene-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 16px;
+  background: var(--bg-secondary);
+  pointer-events: none;
+}
+
+.scene-toolbar__tools,
+.scene-toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.scene-toolbar__tool {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--radius-small);
+  padding: 0;
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.scene-toolbar__tool:hover {
+  color: var(--text-primary);
+  background: var(--fill-primary);
+}
+
+.scene-toolbar__tool--active {
+  background: var(--fill-secondary);
+  color: var(--text-primary);
+}
+
+.scene-toolbar__tool--active:hover {
+  background: var(--fill-secondary);
+  color: var(--text-primary);
+}
+
+.scene-tool-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.scene-toolbar__select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  min-width: 115px;
+  height: var(--control-height);
+  padding: 0 0 0 4px;
+  border: 0;
+  border-radius: var(--radius-small);
+  background: var(--fill-secondary);
+  color: var(--text-primary);
+  font-size: var(--font-body);
+}
+
+.scene-toolbar__select:hover {
+  background: var(--fill-primary);
+}
+
+.scene-toolbar__select .panel-icon {
+  color: var(--text-secondary);
+}
