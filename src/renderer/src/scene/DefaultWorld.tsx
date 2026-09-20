@@ -1,5 +1,6 @@
 import { Environment, Grid } from '@react-three/drei'
 import { DoubleSide } from 'three'
+import { publicUrl } from '../assets/publicUrl'
 import {
   ARENA_CUBES,
   ARENA_HALF,
@@ -15,7 +16,7 @@ import {
   sunLight
 } from './lighting'
 
-const SKY_HDR = '/sky/autumn_field_puresky_2k.hdr'
+const SKY_HDR = publicUrl('sky/autumn_field_puresky_2k.hdr')
 const SURFACE_COLOR = '#d4d4d4'
 
 /** Shared with floor + wall Grid so they match exactly. */

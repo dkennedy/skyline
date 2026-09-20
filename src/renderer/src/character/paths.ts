@@ -1,9 +1,11 @@
+import { publicUrl } from '../assets/publicUrl'
+
 /** Served from src/renderer/public/fbx via Vite publicDir. */
 export const fbxPaths = {
-  ybot: '/fbx/ybot.fbx',
-  idle: '/fbx/idle.fbx',
-  walking: '/fbx/walking.fbx',
-  running: '/fbx/running.fbx'
+  ybot: publicUrl('fbx/ybot.fbx'),
+  idle: publicUrl('fbx/idle.fbx'),
+  walking: publicUrl('fbx/walking.fbx'),
+  running: publicUrl('fbx/running.fbx')
 } as const
 
 /** Mixamo FBX is authored in centimeters. */

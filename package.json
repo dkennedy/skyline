@@ -7,7 +7,9 @@
   "homepage": "https://electron-vite.org",
   "scripts": {
     "dev": "env -u ELECTRON_RUN_AS_NODE electron-vite dev",
+    "web": "vite --config vite.config.ts",
     "build": "electron-vite build",
+    "build:web": "vite build --config vite.config.ts",
     "preview": "env -u ELECTRON_RUN_AS_NODE electron-vite preview",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
